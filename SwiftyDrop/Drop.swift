@@ -73,7 +73,9 @@ public final class Drop: UIView {
         self.duration = duration
         self.action = action
         
-        scheduleUpTimer(duration)
+        if duration <= 0 {
+           scheduleUpTimer(duration)
+        }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
