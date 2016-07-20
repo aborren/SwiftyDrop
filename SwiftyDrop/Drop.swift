@@ -73,7 +73,7 @@ public final class Drop: UIView {
         self.duration = duration
         self.action = action
         
-        if duration <= 0 {
+        if duration > 0 {
            scheduleUpTimer(duration)
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
